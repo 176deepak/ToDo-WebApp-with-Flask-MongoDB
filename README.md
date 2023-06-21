@@ -4,7 +4,7 @@
 ### *Programming Language: Python*
 ### *Framework: Flask*
 ### *DataBase: MongoDB*
-### *HTML, CSS for making webpage structure*
+### *HTML, CSS for making webpages*
 
 ## Simple flask webApp for creating daily todos
 ### This project is comes with user authentication(Sign in and Sign out) functionality, Dashboard for creating ToDos. In this WebApp we can perform CRUD operations(Create, delete and Update).
