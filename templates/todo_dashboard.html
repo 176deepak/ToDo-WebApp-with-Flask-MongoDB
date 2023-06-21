@@ -1,10 +1,13 @@
+<!-- inherit base layout for adding common parts for different different web pages -->
 {% extends 'base.html' %}
 
+<!-- linking another css file for main content -->
 {% block styles %}
   {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 {% endblock %}
 
+<!-- adding main content -->
 {% block content %}
 <div class="todo-form">
     <form method="post">
