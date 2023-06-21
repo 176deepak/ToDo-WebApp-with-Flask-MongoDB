@@ -1,0 +1,55 @@
+<!-- base template/layout which is used in all of other templates -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ToDo-WebApp</title>
+        <link
+            rel="shortcut icon"
+            href="{{url_for('static', filename='images/favicon.png')}}"
+            type="image/png"
+        />
+        <link
+            rel="stylesheet"
+            href="{{url_for('static', filename='css/main.css')}}"
+        />
+
+        <!-- block for extra or different different stylesheets(css files) for different different html files-->
+        {% block styles %}{% endblock %}
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Satisfy&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        
+        <!-- block for javascript files  -->
+        {% block scripts %}{% endblock %}
+        
+    </head>
+    <body>
+        <div class="ToDo-App"><h1>ToDo App</h1></div>
+        <div class="container">
+            
+            <!-- block for main content, main content will vary in each html file -->
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        <div class="footer">
+            <footer>
+                <span>
+                    <!-- email and logout will display only when email is True or when user logged in-->
+                    {% if email %}
+                        | {{email}} | <a href="{{url_for('logout')}}">Log Out</a>
+                    {% endif %} 
+                    | Made with <span style="color: red">&#x2764;</span> |
+                </span>
+            </footer>
+        </div>
+    </body>
+</html>

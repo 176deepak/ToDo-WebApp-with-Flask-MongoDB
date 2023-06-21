@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signin_up.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="signin-up"><h1>Sign In</h1></div>
+<div class="signup-signin-form">
+    <form class="form-data" method="post">
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email..."
+            class="data"
+        /><br />
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter password..."
+            class="data"
+        /><br />
+        {% if flag %}
+        <span style="color: red;"> Entered any one of entry wrong... </span><br />
+        {% endif %}
+        <button>Sign in</button>
+    </form>
+    <div class="second-choice">
+        <span>Not have an account! <a href="{{url_for('signup')}}">sign up</a></span>
+    </div>
+</div>
+{% endblock %}

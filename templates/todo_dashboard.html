@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="todo-form">
+    <form method="post">
+        <input type="text" name="task" class="data" placeholder="Enter new task...">
+        <Button class="add-button">Add</Button>
+    </form>
+</div>
+<div class="past-task-table">
+    {% if todos == 0 %}
+    <div style="text-align: center;">
+        <span>No tasks remaining! Create new tasks</span>
+    </div>
+    {% else %}
+    {% for task in tasks %}
+    <table>
+        <tbody>
+            <tr>
+                <td class="task">
+                    {{task}}
+                </td>
+                <td class="delete">
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="task" value="{{ task }}">
+                        <button class="task-button">
+                            <i class="material-symbols-outlined">
+                                delete
+                            </i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+    {%endif%}
+</div>
+{% endblock %}
